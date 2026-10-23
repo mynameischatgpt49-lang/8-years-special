@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eight Years of Us — Letters Written to Forever | 8th Anniversary</title>
+  <meta name="description" content="A timeless epistolary anniversary celebration: 16 love letters and cherished photographs marking 8 beautiful years together.">
+  
+  <!-- Favicon Heart -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💌</text></svg>">
+
+  <!-- Google Fonts: Editorial Serif, Romantic Script & Clean Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Rose Petals & Canvas Animation Layer -->
+  <canvas id="petals-canvas" aria-hidden="true"></canvas>
+  <div class="vintage-overlay" aria-hidden="true"></div>
+
+  <!-- Floating Audio & Visual Controls (Top Right) -->
+  <header class="floating-controls" role="region" aria-label="Controls">
+    <button id="music-toggle-btn" class="control-btn" title="Toggle Romantic Piano Music" aria-label="Toggle Romantic Piano Music">
+      <div class="music-waves" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <span class="btn-label">Play Our Song</span>
+    </button>
+    <button id="petals-toggle-btn" class="control-btn active" title="Toggle Falling Rose Petals" aria-label="Toggle Falling Rose Petals">
+      <span aria-hidden="true">🌹</span>
+      <span class="btn-label">Petals: On</span>
+    </button>
+  </header>
+
+  <!-- ==========================================================================
+       HERO / INVITATION SECTION
+       ========================================================================== -->
+  <main>
+    <section class="hero-section" id="hero-section">
+      <div class="hero-content">
+        <div class="anniversary-badge">
+          <span class="badge-sparkle">✦</span>
+          <span>VIII • 8th Anniversary • 2018 – 2026</span>
+          <span class="badge-sparkle">✦</span>
+        </div>
+
+        <div class="hero-subtitle-script">To the Love of My Life,</div>
+
+        <h1 class="hero-title">
+          Eight Years of Us, <br>
+          <span class="gold-accent">Letters Written to Forever</span>
+        </h1>
+
+        <p class="hero-intro-text">
+          From the very first moment our hands touched to this golden day, every second with you has been my favorite chapter. Across eight years, we didn’t just grow older—we built a sanctuary of laughter, warmth, and unshakeable devotion. Here are sixteen letters, each holding a cherished piece of my heart.
+        </p>
+
+        <!-- Milestones Summary Strip -->
+        <div class="milestones-strip">
+          <div class="milestone-item">
+            <span class="milestone-num">8</span>
+            <span class="milestone-label">Years of Devotion</span>
+          </div>
+          <div class="milestone-item">
+            <span class="milestone-num" id="count-months">96</span>
+            <span class="milestone-label">Cherished Months</span>
+          </div>
+          <div class="milestone-item">
+            <span class="milestone-num" id="count-days">2,922</span>
+            <span class="milestone-label">Days of Holding Hands</span>
+          </div>
+          <div class="milestone-item">
+            <span class="milestone-num" id="count-hours">70,128</span>
+            <span class="milestone-label">Hours of Pure Love</span>
+          </div>
+        </div>
+
+        <!-- Master Envelope Invitation CTA -->
+        <div class="envelope-invitation">
+          <button id="hero-open-letters-btn" class="envelope-preview-btn" aria-label="Open Our Letters">
+            <span class="seal-icon-mini">8</span>
+            <span>Open Our Letters</span>
+          </button>
+        </div>
+
+        <div class="scroll-indicator" aria-hidden="true">
+          <span>Scroll to Read Our Letters</span>
+          <svg class="scroll-arrow" viewBox="0 0 24 24">
+            <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         COLLECTION HEADER / STICKY FILTER BAR
+         ========================================================================== -->
+    <header class="collection-header" id="collection-header">
+      <div class="collection-nav-wrapper">
+        <div class="nav-brand">
+          <span style="font-size: 1.4rem;">💌</span>
+          <span class="nav-brand-title">Letters of Our Eight Years</span>
+          <span class="nav-brand-tag">16 Memories</span>
+        </div>
+
+        <nav class="nav-actions" aria-label="Filter letters by category">
+          <button class="nav-filter-btn active" data-filter="all">All Letters (16)</button>
+          <button class="nav-filter-btn" data-filter="romantic">Romantic ♥</button>
+          <button class="nav-filter-btn" data-filter="milestone">Milestones ★</button>
+          <button class="nav-filter-btn" data-filter="cozy">Cozy Moments ☕</button>
+          <button class="nav-filter-btn" data-filter="playful">Playful Days ✨</button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ==========================================================================
+         LETTERS EXHIBITION GRID
+         ========================================================================== -->
+    <section class="letters-exhibition" id="exhibition-section" aria-label="Love Letters Gallery">
+      <div class="section-prologue">
+        <div class="prologue-subtitle">Sixteen Chapters Sealed with Love</div>
+        <h2 class="prologue-title">Every Photograph A Love Letter</h2>
+        <p class="prologue-desc">
+          Click any letter to break its wax seal, open the vintage parchment, and read the intimate words written just for you.
+        </p>
+      </div>
+
+      <!-- Container dynamically populated by script.js -->
+      <div class="letters-grid" id="letters-grid-container"></div>
+    </section>
+
+    <!-- ==========================================================================
+         ANNIVERSARY VOW & SECRET NOTE BOX
+         ========================================================================== -->
+    <section class="promise-section" aria-label="Anniversary Vows and Secret Notes">
+      <div class="promise-card">
+        <div class="promise-card-title">Our Sacred Promise</div>
+        <blockquote class="promise-card-quote">
+          “If I had to live eight lifetimes, I would search for you in every single one. You are my greatest peace, my warmest hug, and my forever home. Happy 8th Anniversary, my love.”
+        </blockquote>
+        <div class="promise-card-author">Forever & Always • Dip</div>
+
+        <!-- Interactive Secret Love Note Box -->
+        <div class="secret-note-box">
+          <h3 class="secret-note-title">Leave a Secret Note for Our 9th Year</h3>
+          <p class="secret-note-sub">Type a loving thought or secret wish to seal inside our digital keepsake box:</p>
+          <textarea id="secret-note-input" class="note-input-area" placeholder="Write your sweet message or anniversary note here..."></textarea>
+          <br>
+          <button id="seal-secret-btn" class="seal-secret-btn">Seal with Love ♥</button>
+
+          <div class="saved-notes-display" id="saved-notes-container"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       LETTER MODAL (UNFOLDED FULL READING EXPERIENCE)
+       ========================================================================== -->
+  <aside id="letter-modal" class="letter-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-stationery-sheet">
+      <!-- Close Button -->
+      <button id="modal-close-btn" class="modal-close-btn" title="Close Letter (Esc)" aria-label="Close Letter">&times;</button>
+
+      <!-- Navigation Arrows -->
+      <button id="modal-nav-prev" class="modal-nav-arrow modal-nav-prev" title="Previous Letter (Left Arrow)" aria-label="Previous Letter">&#8249;</button>
+      <button id="modal-nav-next" class="modal-nav-arrow modal-nav-next" title="Next Letter (Right Arrow)" aria-label="Next Letter">&#8250;</button>
+
+      <!-- Left Column: Keepsake Photograph -->
+      <div class="modal-photo-column">
+        <div class="modal-keepsake-frame">
+          <div class="modal-photo-inner">
+            <img id="modal-img" src="" alt="Memory Photograph" class="modal-img" title="Click to enlarge photograph">
+          </div>
+          <div id="modal-caption" class="modal-photo-caption"></div>
+          <div class="zoom-hint">🔍 Click photo to enlarge</div>
+        </div>
+      </div>
+
+      <!-- Right Column: Full Letter Stationery -->
+      <div class="modal-text-column">
+        <div class="modal-header-meta">
+          <span id="modal-letter-num" class="modal-letter-num">Letter I</span>
+          <span id="modal-date" class="modal-date">Date Stamp</span>
+        </div>
+
+        <div id="modal-salutation" class="modal-salutation">My Dearest Love,</div>
+        <h2 id="modal-title" class="modal-title">Letter Title</h2>
+
+        <div id="modal-body-container" class="modal-body-text">
+          <!-- Paragraphs populated by script.js -->
+        </div>
+
+        <div class="modal-signoff-row">
+          <div class="signoff-handwriting">
+            <div id="modal-signoff-phrase" class="signoff-phrase">Forever Yours,</div>
+            <div id="modal-signoff-author" class="signoff-author">Dip</div>
+          </div>
+
+          <button id="modal-heart-action" class="modal-heart-action-btn" title="Send a Heart">
+            <span>♥ Send a Heart</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="anniversary-footer">
+    <div class="footer-wax-seal" title="Sealed with Love">8</div>
+    <div class="footer-script">Forever & Always Yours</div>
+    <p class="footer-tagline">Eight Years Down, An Eternity of Sunrises to Go.</p>
+    <div class="footer-credits">October 23, 2018 — October 23, 2026 • Crafted with Infinite Love</div>
+  </footer>
+
+  <!-- Fullscreen Lightbox for Photos -->
+  <aside id="lightbox-modal" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Expanded Photograph">
+    <button id="lightbox-close-btn" class="lightbox-close-btn" aria-label="Close Lightbox">&times;</button>
+    <img id="lightbox-img" src="" alt="Expanded Photograph" class="lightbox-img">
+    <div id="lightbox-caption" class="lightbox-caption"></div>
+  </aside>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
